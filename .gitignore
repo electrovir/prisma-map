@@ -1,0 +1,15 @@
+.DS_Store
+.not-committed/
+*.tgz
+/Icon?
+coverage/
+dist-*/
+dist/
+generated-config-*
+graphics/
+node_modules/
+all-files-for-code-coverage.test.ts
+tsconfig.tsbuildinfo
+
+prisma-output/
+migrations/
