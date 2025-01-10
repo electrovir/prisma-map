@@ -4,6 +4,7 @@ module.exports = {
     ...baseConfig,
     ignorePaths: [
         ...baseConfig.ignorePaths,
+        'migrations/',
     ],
     words: [
         ...baseConfig.words,
