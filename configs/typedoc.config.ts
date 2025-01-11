@@ -13,8 +13,14 @@ export const typeDocConfig: Partial<TypeDocOptions> = {
     ],
     intentionallyNotExported: [],
     defaultCategory: 'MISSING CATEGORY',
+    highlightLanguages: [
+        'prisma',
+        'typescript',
+        'sh',
+    ],
     categoryOrder: [
-        'Main',
+        'Extension',
+        'Generator Config',
         'Internal',
     ],
 };

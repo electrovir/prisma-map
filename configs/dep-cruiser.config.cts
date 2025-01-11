@@ -8,6 +8,7 @@ const baseConfig = defineConfig({
             from: [
                 'src/index.ts',
                 'src/cli.ts',
+                'src/generator/generator-mocks/',
             ],
         },
     },
