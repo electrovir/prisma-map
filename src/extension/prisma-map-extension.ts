@@ -55,6 +55,7 @@ export async function runPrismaMapExtension(
  */
 export function createPrismaMapExtension(mappers: ReadonlyArray<PrismaValueMapper>) {
     return {
+        name: 'prisma-map',
         query: {
             /** Catch all query operations so we can map any fields in any models that need mapping. */
             async $allOperations({

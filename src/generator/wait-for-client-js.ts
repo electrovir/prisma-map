@@ -11,14 +11,11 @@ function getPrismaClientDir(prismaOutputDir: string): string {
         resolve(prismaOutputDir, '..', '..', '.prisma', 'client'),
         parentPrismaClientDir,
         siblingPrismaClientDir,
-        /* node:coverage ignore next 3: only one branch of the ternary can trigger in dev */
-        'resolve' in import.meta
-            ? resolve(import.meta.resolve('@prisma/client'), '..', '..', '.prisma', 'client')
-            : '',
+        resolve(import.meta.resolve('@prisma/client'), '..', '..', '.prisma', 'client'),
     ].filter(check.isTruthy);
 
     const validDirectory = directoriesToTry.find((dir) => {
-        return existsSync(dir);
+        return existsSync(join(dir, 'schema.prisma'));
     });
 
     if (validDirectory) {
