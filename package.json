@@ -1,6 +1,6 @@
 {
     "name": "prisma-map",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Map generated Prisma types and runtime field values however you like.",
     "keywords": [
         "prisma",
