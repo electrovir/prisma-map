@@ -4,6 +4,14 @@ export default {
     ],
     replacements: [
         {
+            match: /\bDate\s*\|\s*string\b/,
+            replace: 'UtcIsoString',
+        },
+        {
+            match: /\bstring\s*\|\s*Date\b/,
+            replace: 'UtcIsoString',
+        },
+        {
             match: /\bDate\b/,
             replace: 'UtcIsoString',
         },

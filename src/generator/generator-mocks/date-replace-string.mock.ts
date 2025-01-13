@@ -5,7 +5,7 @@ export default {
     replacements: [
         {
             match: ' Date ',
-            replace: 'UtcIsoString',
+            replace: ' UtcIsoString ',
         },
     ],
 };
