@@ -2,8 +2,8 @@ import {log} from '@augment-vir/common';
 import generatorHelper from '@prisma/generator-helper';
 import prismaInternals from '@prisma/internals';
 import {readThisPackageJson} from '../augments/package-json.js';
+import {readPrismaMapGeneratorOptions} from '../generator-config/read-generator-config.js';
 import {generate} from './generate.js';
-import {readPrismaMapGeneratorOptions} from './generator-config.js';
 import {waitForClientJs} from './wait-for-client-js.js';
 
 /**

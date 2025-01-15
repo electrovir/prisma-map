@@ -1,6 +1,6 @@
 {
     "name": "prisma-map",
-    "version": "0.0.4",
+    "version": "1.0.0",
     "description": "Map generated Prisma types and runtime field values however you like.",
     "keywords": [
         "prisma",
@@ -51,6 +51,7 @@
         "@prisma/client": "^6.2.1",
         "@prisma/generator-helper": "^6.2.1",
         "@prisma/internals": "^6.2.1",
+        "fsm-vir": "^2.0.0",
         "object-shape-tester": "^4.1.0",
         "type-fest": "^4.32.0"
     },

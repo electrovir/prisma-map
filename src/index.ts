@@ -5,7 +5,7 @@ export * from './extension/prisma-map-extension.js';
 export * from './file-paths.js';
 export * from './generator-config/define-config.js';
 export * from './generator-config/prisma-map-config.js';
+export * from './generator-config/read-generator-config.js';
 export * from './generator/generate.js';
-export * from './generator/generator-config.js';
 export * from './generator/generator.js';
 export * from './generator/wait-for-client-js.js';

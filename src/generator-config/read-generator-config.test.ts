@@ -1,5 +1,5 @@
 import {describe, itCases} from '@augment-vir/test';
-import {readPrismaMapGeneratorOptions} from './generator-config.js';
+import {readPrismaMapGeneratorOptions} from './read-generator-config.js';
 
 describe(readPrismaMapGeneratorOptions.name, () => {
     itCases(readPrismaMapGeneratorOptions, [

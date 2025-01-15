@@ -5,32 +5,76 @@ import {definePrismaMapConfig} from './define-config.js';
 describe(definePrismaMapConfig.name, () => {
     itCases(definePrismaMapConfig, [
         {
-            it: 'works',
+            it: 'supports both inputs and outputs',
             input: {
                 imports: [
                     'something',
                 ],
-                replacements: [
-                    {
-                        match: 'hi',
-                        replace: 'bye',
-                    },
-                ],
+                replacements: {
+                    inputs: [
+                        {
+                            match: 'hi',
+                            replace: 'bye',
+                        },
+                    ],
+                    outputs: [
+                        {
+                            match: 'hi',
+                            replace: 'bye',
+                        },
+                    ],
+                },
             },
             throws: undefined,
         },
         {
-            it: 'works',
+            it: 'works with just inputs',
             input: {
                 imports: [
                     'something',
                 ],
-                replacements: [
-                    // @ts-expect-error: intentionally incorrect input
-                    {
-                        match: 'hi',
-                    },
+                replacements: {
+                    inputs: [
+                        {
+                            match: 'hi',
+                            replace: 'bye',
+                        },
+                    ],
+                },
+            },
+            throws: undefined,
+        },
+        {
+            it: 'works with just outputs',
+            input: {
+                imports: [
+                    'something',
                 ],
+                replacements: {
+                    outputs: [
+                        {
+                            match: 'hi',
+                            replace: 'bye',
+                        },
+                    ],
+                },
+            },
+            throws: undefined,
+        },
+        {
+            it: 'rejects a shape mismatch',
+            input: {
+                imports: [
+                    'something',
+                ],
+                replacements: {
+                    inputs: [
+                        // @ts-expect-error: intentionally incorrect input
+                        {
+                            match: 'hi',
+                        },
+                    ],
+                },
             },
             throws: {
                 matchConstructor: ShapeMismatchError,

@@ -82,12 +82,12 @@ describe('generator test', () => {
 
     snapshotCasesWithContext(runGeneratorTest, [
         {
-            it: 'converts Date types with a RegExp',
-            inputs: ['date-replace-regexp'],
+            it: 'converts Date output types with a RegExp',
+            inputs: ['date-replace-output-regexp'],
         },
         {
-            it: 'converts Date types with a string',
-            inputs: ['date-replace-string'],
+            it: 'converts Date input types with a string',
+            inputs: ['date-replace-input-string'],
         },
         {
             it: 'does nothing when config is empty',
