@@ -127,5 +127,3 @@ export default definePrismaMapConfig({
     },
 });
 ```
-
-Currently the generator is not very smart, it simply runs your list of replacements on almost the entire Prisma types file. There's no way, for example, to easily split between input types and output types.
