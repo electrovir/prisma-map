@@ -1,6 +1,6 @@
 {
     "name": "prisma-map",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "Map generated Prisma types and runtime field values however you like.",
     "keywords": [
         "prisma",
@@ -48,6 +48,7 @@
         "@augment-vir/assert": "^31.17.1",
         "@augment-vir/common": "^31.17.1",
         "@augment-vir/node": "^31.17.1",
+        "@prisma/client": "^6.7.0",
         "fsm-vir": "^2.0.0",
         "object-shape-tester": "^5.1.5",
         "type-fest": "^4.41.0"
@@ -56,7 +57,6 @@
         "@augment-vir/test": "^31.17.1",
         "@eslint/eslintrc": "^3.3.1",
         "@eslint/js": "^9.26.0",
-        "@prisma/client": "^6.7.0",
         "@prisma/generator-helper": "^6.7.0",
         "@prisma/internals": "^6.7.0",
         "@stylistic/eslint-plugin": "^4.2.0",
@@ -96,7 +96,6 @@
         "virmator": "^13.15.1"
     },
     "peerDependencies": {
-        "@prisma/client": "*",
         "@prisma/generator-helper": "*",
         "@prisma/internals": "*"
     },
