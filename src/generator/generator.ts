@@ -15,6 +15,11 @@ export function registerGenerator() {
     generatorHelper.generatorHandler({
         onManifest() {
             return {
+                /**
+                 * There's no way to convince Prisma to print a different output path other than
+                 * this default, so we just have to leave it as is even though the generator will be
+                 * much more intelligent about where to generate the output.
+                 */
                 defaultOutput: '-',
                 requiresGenerators: ['prisma-client-js'],
                 prettyName: 'prisma-map',

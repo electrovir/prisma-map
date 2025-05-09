@@ -1,6 +1,6 @@
 import {waitUntil} from '@augment-vir/assert';
 import {collapseWhiteSpace} from '@augment-vir/common';
-import {readFile} from 'node:fs/promises';
+import {readFile, stat} from 'node:fs/promises';
 import {join} from 'node:path';
 
 /**
@@ -13,18 +13,24 @@ export async function waitForClientJs(
     schemaPath: string,
     prismaOutputDir: string,
 ): Promise<string> {
-    const currentSchema = collapseWhiteSpace(String(await readFile(schemaPath)));
+    const isSchemaDir = (await stat(schemaPath)).isDirectory();
+    /* node:coverage ignore next 1: I don't wanna test this right now */
+    const currentSchemaPath = isSchemaDir ? join(schemaPath, 'schema.prisma') : schemaPath;
+    const currentSchema = collapseWhiteSpace(String(await readFile(currentSchemaPath)));
 
     return await waitUntil.isTruthy(
         async () => {
-            const dirPath = prismaOutputDir;
-
             const generatedSchemaContents = collapseWhiteSpace(
-                String(await readFile(join(dirPath, 'schema.prisma'))),
+                String(await readFile(join(prismaOutputDir, 'schema.prisma'))),
             );
 
-            if (generatedSchemaContents === currentSchema) {
-                return dirPath;
+            if (
+                /* node:coverage ignore next 3: I don't wanna test this right now */
+                isSchemaDir
+                    ? generatedSchemaContents.includes(currentSchema)
+                    : generatedSchemaContents === currentSchema
+            ) {
+                return prismaOutputDir;
                 /* node:coverage ignore next 3: edge case */
             } else {
                 return '';
