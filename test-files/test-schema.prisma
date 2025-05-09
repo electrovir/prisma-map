@@ -1,10 +1,11 @@
 generator jsClient {
     provider = "prisma-client-js"
+    output   = "./generated"
 }
 
 datasource db {
     provider = "sqlite"
-    url      = "file:.not-committed/full-schema.db"
+    url      = "file:../.not-committed/full-schema.db"
 }
 
 model User {

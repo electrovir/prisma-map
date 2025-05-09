@@ -1,6 +1,6 @@
-import {SetRequired} from '@augment-vir/common';
+import {type SetRequired} from '@augment-vir/common';
 import {readFileSync} from 'node:fs';
-import {PackageJson} from 'type-fest';
+import {type PackageJson} from 'type-fest';
 import {packageJsonPath} from '../file-paths.js';
 
 /**

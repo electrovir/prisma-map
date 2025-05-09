@@ -1,8 +1,8 @@
 import {assert} from '@augment-vir/assert';
-import type {MaybePromise} from '@augment-vir/common';
+import {type MaybePromise} from '@augment-vir/common';
 import {describe, it, type UniversalTestContext} from '@augment-vir/test';
-import {PrismaClient} from '@prisma/client';
-import type {PrismaValueMapper} from './map-values.js';
+import {PrismaClient} from '../setup/prisma.mock.js';
+import {type PrismaValueMapper} from './map-values.js';
 import {mapDates} from './mappers.mock.js';
 import {createPrismaMapExtension} from './prisma-map-extension.js';
 

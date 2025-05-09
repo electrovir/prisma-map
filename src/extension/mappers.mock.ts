@@ -1,5 +1,5 @@
 import {check} from '@augment-vir/assert';
-import type {MappedPrismaValue} from './map-values.js';
+import {type MappedPrismaValue} from './map-values.js';
 
 export function mapDates(value: unknown): MappedPrismaValue {
     if (!check.instanceOf(value, Date)) {

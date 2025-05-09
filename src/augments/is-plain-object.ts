@@ -1,4 +1,4 @@
-import type {AnyObject} from '@augment-vir/common';
+import {type AnyObject} from '@augment-vir/common';
 
 /**
  * Detects when an object is a _plain_ object (like `{key: 'value'}`) only, excluding everything

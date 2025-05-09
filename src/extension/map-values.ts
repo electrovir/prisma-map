@@ -1,5 +1,5 @@
 import {check} from '@augment-vir/assert';
-import {AnyObject, awaitedForEach, MaybePromise} from '@augment-vir/common';
+import {type AnyObject, awaitedForEach, type MaybePromise} from '@augment-vir/common';
 import {isPlainObject} from '../augments/is-plain-object.js';
 
 /**

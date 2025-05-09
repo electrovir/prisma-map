@@ -1,5 +1,5 @@
-import {PrismaClient} from '@prisma/client';
 import {createPrismaMapExtension, runPrismaMapExtension, type PrismaValueMapper} from '../index.js';
+import {PrismaClient} from '../setup/prisma.mock.js';
 
 /** This function maps Date values to their corresponding ISO strings and will result in all */
 function dateToString(value: unknown) {

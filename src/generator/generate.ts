@@ -3,7 +3,10 @@ import {addRegExpFlags} from '@augment-vir/common';
 import {runFsm} from 'fsm-vir';
 import {readFile, writeFile} from 'node:fs/promises';
 import {join} from 'node:path';
-import {Replacement, type PrismaMapGeneratorConfig} from '../generator-config/prisma-map-config.js';
+import {
+    type PrismaMapGeneratorConfig,
+    type Replacement,
+} from '../generator-config/prisma-map-config.js';
 
 enum State {
     Start = 'start',

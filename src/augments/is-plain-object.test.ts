@@ -1,5 +1,5 @@
 import {describe, itCases} from '@augment-vir/test';
-import {Prisma} from '@prisma/client';
+import {Prisma} from '../setup/prisma.mock.js';
 import {isPlainObject} from './is-plain-object.js';
 
 describe(isPlainObject.name, () => {

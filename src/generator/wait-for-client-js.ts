@@ -1,30 +1,7 @@
-import {check, waitUntil} from '@augment-vir/assert';
+import {waitUntil} from '@augment-vir/assert';
 import {collapseWhiteSpace} from '@augment-vir/common';
-import {existsSync} from 'node:fs';
 import {readFile} from 'node:fs/promises';
-import {join, resolve} from 'node:path';
-import {parentPrismaClientDir, siblingPrismaClientDir} from '../file-paths.js';
-
-function getPrismaClientDir(prismaOutputDir: string): string {
-    const directoriesToTry = [
-        prismaOutputDir,
-        resolve(prismaOutputDir, '..', '..', '.prisma', 'client'),
-        parentPrismaClientDir,
-        siblingPrismaClientDir,
-        resolve(import.meta.resolve('@prisma/client'), '..', '..', '.prisma', 'client'),
-    ].filter(check.isTruthy);
-
-    const validDirectory = directoriesToTry.find((dir) => {
-        return existsSync(join(dir, 'schema.prisma'));
-    });
-
-    if (validDirectory) {
-        return validDirectory;
-    }
-
-    /* node:coverage ignore next 1 */
-    throw new Error('No prisma output path found.');
-}
+import {join} from 'node:path';
 
 /**
  * Waits for the default `prisma-client-js` generator to finish producing its outputs.
@@ -40,7 +17,7 @@ export async function waitForClientJs(
 
     return await waitUntil.isTruthy(
         async () => {
-            const dirPath = getPrismaClientDir(prismaOutputDir);
+            const dirPath = prismaOutputDir;
 
             const generatedSchemaContents = collapseWhiteSpace(
                 String(await readFile(join(dirPath, 'schema.prisma'))),
@@ -48,6 +25,7 @@ export async function waitForClientJs(
 
             if (generatedSchemaContents === currentSchema) {
                 return dirPath;
+                /* node:coverage ignore next 3: edge case */
             } else {
                 return '';
             }

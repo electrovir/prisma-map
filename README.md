@@ -26,8 +26,8 @@ The Prisma client extension can be added to your Prisma client either with `crea
 <!-- example-link: src/examples/extension.example.ts -->
 
 ```TypeScript
-import {PrismaClient} from '@prisma/client';
 import {createPrismaMapExtension, runPrismaMapExtension, type PrismaValueMapper} from 'prisma-map';
+import {PrismaClient} from '../setup/prisma.mock.js';
 
 /** This function maps Date values to their corresponding ISO strings and will result in all */
 function dateToString(value: unknown) {
