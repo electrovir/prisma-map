@@ -11,5 +11,5 @@ import {
 await rm(generatedTestPrismaClientDirPath, {force: true, recursive: true});
 await rm(testDbPath, {force: true});
 
-await prisma.database.resetDev(testPrismaSchemaPath);
+await prisma.database.resetDev(testPrismaSchemaPath, {withMigrations: true});
 await prisma.migration.create({migrationName: 'init'}, testPrismaSchemaPath);

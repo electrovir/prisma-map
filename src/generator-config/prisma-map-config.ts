@@ -1,4 +1,4 @@
-import {classShape, defineShape, optional, or} from 'object-shape-tester';
+import {classShape, defineShape, optionalShape, unionShape} from 'object-shape-tester';
 
 /**
  * Shape definition for an individual replacement.
@@ -6,7 +6,7 @@ import {classShape, defineShape, optional, or} from 'object-shape-tester';
  * @category Internal
  */
 export const replacementShape = defineShape({
-    match: or(classShape(RegExp), ''),
+    match: unionShape(classShape(RegExp), ''),
     replace: '',
 });
 
@@ -23,14 +23,14 @@ export type Replacement = typeof replacementShape.runtimeType;
  * @category Internal
  */
 export const prismaMapGeneratorConfigShape = defineShape({
-    imports: optional(['']),
-    replacements: optional({
+    imports: optionalShape(['']),
+    replacements: optionalShape({
         /** Modify Prisma query input field types. */
-        inputs: optional([
+        inputs: optionalShape([
             replacementShape,
         ]),
         /** Modify Prisma query output field types. */
-        outputs: optional([
+        outputs: optionalShape([
             replacementShape,
         ]),
     }),
