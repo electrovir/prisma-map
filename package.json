@@ -1,12 +1,11 @@
 {
     "name": "prisma-map",
-    "version": "2.0.4",
+    "version": "3.0.0",
     "description": "Map generated Prisma types and runtime field values however you like.",
     "keywords": [
         "prisma",
         "plugin",
         "extension",
-        "generator",
         "vir"
     ],
     "homepage": "https://github.com/electrovir/prisma-map",
@@ -26,7 +25,6 @@
     "main": "src/index.ts",
     "module": "src/index.ts",
     "types": "src/index.ts",
-    "bin": "bin.js",
     "scripts": {
         "compile": "npm run setup && virmator compile",
         "docs": "virmator docs",

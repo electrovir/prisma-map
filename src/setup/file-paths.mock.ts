@@ -1,8 +1,8 @@
-import {join} from 'node:path';
-import {repoDirPath} from '../file-paths.js';
+import {join, resolve} from 'node:path';
+
+export const repoDirPath = resolve(import.meta.dirname, '..', '..');
 
 export const notCommittedDirPath = join(repoDirPath, '.not-committed');
-export const generatorMocksDirPath = join(repoDirPath, 'src', 'generator', 'generator-mocks');
 
 export const testFilesDirPath = join(repoDirPath, 'test-files');
 export const testPrismaSchemaPath = join(testFilesDirPath, 'test-schema.prisma');
