@@ -1,7 +1,7 @@
 /* node:coverage disable this won't be run in tests */
 
-import {prisma} from '@augment-vir/node';
 import {rm} from 'node:fs/promises';
+import {prismaApi} from 'prisma-vir';
 import {
     generatedTestPrismaClientDirPath,
     testDbPath,
@@ -11,5 +11,11 @@ import {
 await rm(generatedTestPrismaClientDirPath, {force: true, recursive: true});
 await rm(testDbPath, {force: true});
 
-await prisma.database.resetDev(testPrismaSchemaPath, {withMigrations: true});
-await prisma.migration.create({migrationName: 'init'}, testPrismaSchemaPath);
+await prismaApi.database.resetDev({
+    schemaPath: testPrismaSchemaPath,
+    withMigrations: true,
+});
+await prismaApi.migration.create({
+    schemaPath: testPrismaSchemaPath,
+    migrationName: 'init',
+});
